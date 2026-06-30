@@ -2,294 +2,149 @@
 <html lang="it">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SIDEREA</title>
 
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
-
 
 <body>
 
-
-
     <section class="hero container py-5">
 
-
-
         <!-- LOGO -->
-
         <div class="logo">
-
             <img src="images/Logo_white.png" alt="Logo">
-
         </div>
 
         <!-- IMMAGINI -->
-
-
         <div class="row justify-content-center mt-5 g-4">
 
-
-
             <div class="col-md-6">
-
-
                 <div class="card-dark">
-
-
-                    <img src="images/packaging.png" class="product-image" alt="Packaging">
-
-
-                    <h4 class="mt-3">
-
-                        Premium Packaging
-
-                    </h4>
-
-
+                    <img src="images/packaging.png" class="product-image" alt="Packaging" onclick="openImage(this.src)">
+                    <h4 class="mt-3">Premium Packaging</h4>
                 </div>
-
-
             </div>
 
-
-
-
-
             <div class="col-md-6">
-
-
                 <div class="card-dark">
-
-
-                    <img src="images/product.png" class="product-image" alt="Moschettone">
-
-
-                    <h4 class="mt-3">
-
-                        Product
-
-                    </h4>
-
-
+                    <img src="images/product.png" class="product-image" alt="Moschettone" onclick="openImage(this.src)">
+                    <h4 class="mt-3">Product</h4>
                 </div>
-
-
             </div>
 
-
             <div class="col-md-6">
-
-
                 <div class="card-dark">
-
-
-                    <img src="images/pants.png" class="product-image" alt="Example">
-
-
-                    <h4 class="mt-3">
-
-                        Example
-
-                    </h4>
-
-
+                    <img src="images/pants.png" class="product-image" alt="Example" onclick="openImage(this.src)">
+                    <h4 class="mt-3">Example</h4>
                 </div>
-
-
             </div>
-
-
 
         </div>
-
-
-
-
-
-
 
         <!-- DESCRIZIONE -->
-
-
         <div class="description mt-5">
 
-
-            <h2>
-
-                Una nuova rivoluzione
-
-            </h2>
-
-
+            <h2>Una nuova rivoluzione</h2>
 
             <p>
-
-
                 SIDEREA è il moschettone che ridefinisce il concetto di accessorio moda. Una stella simbolica incontra un design innovativo, creando un prodotto unico pensato per chi vuole distinguersi.
-
-
             </p>
-
-
 
             <p>
-
-
                 Disponibile in diverse colorazioni, SIDEREA permette di esprimere personalità, stile e identità attraverso un dettaglio iconico.
-
-
             </p>
-
-
-
 
             <div class="colors">
-
-
                 <span class="black" title="Black"></span>
-
                 <span class="red" title="Red"></span>
-
                 <span class="pink" title="Pink"></span>
-
                 <span class="blue" title="Blue"></span>
-
                 <span class="green" title="Green"></span>
-
                 <span class="gold" title="Gold"></span>
-
-
             </div>
 
-
         </div>
-
-
-
-
-
 
         <!-- COUNTDOWN IN BASSO -->
-
-
         <div class="countdown-box mt-5">
 
-
-            <h2>
-
-                Lancio ufficiale
-
-            </h2>
-
-
+            <h2>Lancio ufficiale</h2>
 
             <div class="countdown" id="timer">
-
                 00 : 00 : 00 : 00
-
             </div>
 
-
             <p>
-
                 Preparati alla nuova era della moda
-
             </p>
-
 
         </div>
 
+        <!-- LIGHTBOX -->
+        <div id="lightbox" class="lightbox">
+            <span class="close" onclick="closeImage()">×</span>
+            <img id="lightbox-img" src="" alt="Immagine ingrandita">
+        </div>
 
 
-
-
-
+        <footer class="footer">
+            <p>
+                © Create by Guido Lanzi
+            </p>
+        </footer>
     </section>
 
-
-
-
-
-
-
     <script>
-        let launchDate =
-            new Date("December 31, 2026 00:00:00").getTime();
-
-
+        let launchDate = new Date("December 31, 2026 00:00:00").getTime();
 
         let timer = setInterval(function() {
 
-
-
             let now = new Date().getTime();
-
-
             let distance = launchDate - now;
 
+            let days = Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            );
 
+            let hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
 
-            let days =
-                Math.floor(distance /
-                    (1000 * 60 * 60 * 24));
+            let minutes = Math.floor(
+                (distance % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
 
-
-
-            let hours =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60 * 24)) /
-                    (1000 * 60 * 60)
-                );
-
-
-
-            let minutes =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60)) /
-                    (1000 * 60)
-                );
-
-
-
-            let seconds =
-                Math.floor(
-                    (distance %
-                        (1000 * 60)) /
-                    1000
-                );
-
-
-
+            let seconds = Math.floor(
+                (distance % (1000 * 60)) /
+                1000
+            );
 
             document.getElementById("timer").innerHTML =
-
                 days + " : " +
-
                 hours + " : " +
-
                 minutes + " : " +
-
                 seconds;
 
-
-
         }, 1000);
+
+        function openImage(src) {
+            document.getElementById("lightbox-img").src = src;
+            document.getElementById("lightbox").style.display = "flex";
+        }
+
+        function closeImage() {
+            document.getElementById("lightbox").style.display = "none";
+        }
     </script>
 
-
-
 </body>
-
 
 </html>
