@@ -1,0 +1,127 @@
+body {
+    background: #050505;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 450px;
+    max-width: 80%;
+    height: auto;
+}
+
+.star {
+    color: #d4af37;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 20px;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+    transition: 0.4s;
+}
+
+.product-image:hover {
+    transform: scale(1.03);
+}
+
+.card-dark {
+    background: #111;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.description {
+    max-width: 850px;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.colors span {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 10px;
+    border: 2px solid white;
+}
+
+
+/* colori presi dal prodotto */
+
+.black {
+    background: #111;
+}
+
+.red {
+    background: #b7192b;
+}
+
+.pink {
+    background: #d89ab5;
+}
+
+.blue {
+    background: #1d72b8;
+}
+
+.green {
+    background: #006b45;
+}
+
+.gold {
+    background: #d5a51c;
+}
+
+
+/* COUNTDOWN */
+
+.countdown-box {
+    margin-top: 100px;
+    padding: 40px;
+    background: #111;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.countdown {
+    font-size: 45px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+@media(max-width:768px) {
+    .logo img {
+        width: 300px;
+        max-width: 85%;
+    }
+    .countdown {
+        font-size: 30px;
+    }
+    .description {
+        font-size: 17px;
+    }
+}
