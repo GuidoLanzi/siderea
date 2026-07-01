@@ -40,7 +40,7 @@
 
             <div class="col-md-6">
                 <div class="card-dark">
-                    <img src="images/pants.png" class="product-image" alt="Example" onclick="openImage(this.src)">
+                    <img src="images/pants.png" class="product-image" id="Example" alt="Example" onclick="openImage(this.src)">
                     <h4 class="mt-3">Example</h4>
                 </div>
             </div>
@@ -59,14 +59,17 @@
             <p>
                 Disponibile in diverse colorazioni, SIDEREA permette di esprimere personalità, stile e identità attraverso un dettaglio iconico.
             </p>
+            <p>
+                Le immagini che vedete all'interno di questo sono solo di illustrazione su un prototipo generato da un AI. Sarà la base su come sarà il prodotto finale.
+            </p>
 
             <div class="colors">
-                <span class="black" title="Black"></span>
-                <span class="red" title="Red"></span>
-                <span class="pink" title="Pink"></span>
-                <span class="blue" title="Blue"></span>
-                <span class="green" title="Green"></span>
-                <span class="gold" title="Gold"></span>
+                <span class="black" title="Black" onclick="cambiaImmagine('images/pants.png')"></span>
+                <span class="red" title="Red" onclick="cambiaImmagine('images/pants_red.png')"></span>
+                <span class="pink" title="Pink" onclick="cambiaImmagine('images/pants_pink.png')"></span>
+                <span class="blue" title="Blue" onclick="cambiaImmagine('images/pants_blue.png')"></span>
+                <span class="green" title="Green" onclick="cambiaImmagine('images/pants_green.png')"></span>
+                <span class="gold" title="Gold" onclick="cambiaImmagine('images/pants_gold.png')"></span>
             </div>
 
         </div>
@@ -142,6 +145,11 @@
 
         function closeImage() {
             document.getElementById("lightbox").style.display = "none";
+        }
+
+        function cambiaImmagine(nomeImmagine) {
+            console.log(nomeImmagine);
+            document.getElementById("Example").src = nomeImmagine;
         }
     </script>
 
